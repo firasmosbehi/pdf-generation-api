@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ title or "Invoice" }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 32px; color: #1f2937; }
+    h1 { margin-bottom: 8px; }
+    .meta { margin-bottom: 20px; color: #4b5563; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th, td { border-bottom: 1px solid #d1d5db; text-align: left; padding: 8px; }
+    .total { text-align: right; margin-top: 16px; font-weight: 700; }
+  </style>
+  {% if css %}
+  <style>{{ css | safe }}</style>
+  {% endif %}
+</head>
+<body>
+  <h1>{{ title or "Invoice" }}</h1>
+  <div class="meta">
+    <div>Customer: {{ customer_name or "N/A" }}</div>
+    <div>Invoice #: {{ invoice_number or "N/A" }}</div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Qty</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in items or [] %}
+      <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ item.price }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="total">Total: {{ total or "$0.00" }}</div>
+</body>
+</html>

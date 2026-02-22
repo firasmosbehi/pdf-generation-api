@@ -1,0 +1,40 @@
+[project]
+name = "pdf-generation-api"
+version = "0.1.0"
+description = "FastAPI service to generate PDFs from HTML/CSS or Jinja2 templates"
+authors = [
+    {name = "Firas Mosbehi",email = "firas.mosbehi@insat.ucar.tn"}
+]
+requires-python = "^3.10"
+dependencies = [
+    "fastapi>=0.115.0,<1.0.0",
+    "uvicorn[standard]>=0.30.0,<1.0.0",
+    "playwright>=1.55.0,<2.0.0",
+    "jinja2>=3.1.0,<4.0.0",
+    "python-multipart>=0.0.9,<1.0.0",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+httpx = "^0.28.1"
+ruff = "^0.9.10"
+black = "^24.10.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
