@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ invoice.number }} - {{ seller.legal_name }}</title>
+  </head>
+  <body>
+    <main class="invoice">
+      <header class="top">
+        <section class="identity">
+          <h1>{{ seller.legal_name }}</h1>
+          <p>{{ seller.address.line1 }}</p>
+          <p>{{ seller.address.city }}, {{ seller.address.state }} {{ seller.address.postal_code }}</p>
+          <p>{{ seller.address.country }}</p>
+          <p>TAX ID: {{ seller.tax_id }} | DUNS: {{ seller.duns }}</p>
+        </section>
+        <section class="stamp">
+          <h2>Invoice</h2>
+          <p><strong>{{ invoice.number }}</strong></p>
+          <p>Issue Date: {{ invoice.issue_date }}</p>
+          <p>Due Date: {{ invoice.due_date }}</p>
+          <p>PO Reference: {{ invoice.po_number }}</p>
+          <p>Contract: {{ invoice.contract_id }}</p>
+        </section>
+      </header>
+
+      <section class="parties">
+        <article>
+          <h3>Bill To</h3>
+          <p><strong>{{ buyer.company }}</strong></p>
+          <p>{{ buyer.contact_name }} ({{ buyer.contact_title }})</p>
+          <p>{{ buyer.billing_address.line1 }}</p>
+          <p>{{ buyer.billing_address.city }}, {{ buyer.billing_address.state }} {{ buyer.billing_address.postal_code }}</p>
+          <p>{{ buyer.billing_address.country }}</p>
+          <p>{{ buyer.email }}</p>
+        </article>
+        <article>
+          <h3>Service Delivery Region</h3>
+          <p>{{ engagement.region }}</p>
+          <p>Program: {{ engagement.program_name }}</p>
+          <p>Service Window: {{ engagement.service_window.start }} to {{ engagement.service_window.end }}</p>
+          <p>Support Tier: {{ engagement.support_tier }}</p>
+          <p>SLA: {{ engagement.sla_summary }}</p>
+        </article>
+      </section>
+
+      <section>
+        <h3>Line Items</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Description</th>
+              <th>Unit</th>
+              <th>Qty</th>
+              <th>Unit Price</th>
+              <th>Discount</th>
+              <th>Line Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for line in line_items %}
+            <tr>
+              <td>{{ line.code }}</td>
+              <td>
+                <strong>{{ line.description }}</strong><br />
+                {% if line.notes %}
+                <span class="muted">{{ line.notes }}</span>
+                {% endif %}
+              </td>
+              <td>{{ line.unit }}</td>
+              <td>{{ line.quantity }}</td>
+              <td>{{ line.unit_price }}</td>
+              <td>
+                {% if line.discount_pct and line.discount_pct > 0 %}
+                {{ line.discount_pct }}%
+                {% else %}
+                -
+                {% endif %}
+              </td>
+              <td>{{ line.total }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </section>
+
+      <section class="two-col">
+        <article>
+          <h3>Milestone Progress</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Milestone</th>
+                <th>Status</th>
+                <th>Target Date</th>
+                <th>Actual Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for milestone in milestones %}
+              <tr>
+                <td>{{ milestone.name }}</td>
+                <td>{{ milestone.status }}</td>
+                <td>{{ milestone.target_date }}</td>
+                <td>{{ milestone.actual_date or "-" }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </article>
+        <article>
+          <h3>Totals</h3>
+          <table>
+            <tbody>
+              <tr>
+                <th>Subtotal</th>
+                <td>{{ totals.subtotal }}</td>
+              </tr>
+              {% for tax_line in totals.tax_lines %}
+              <tr>
+                <th>{{ tax_line.name }} ({{ tax_line.rate }})</th>
+                <td>{{ tax_line.amount }}</td>
+              </tr>
+              {% endfor %}
+              <tr>
+                <th>Previous Balance</th>
+                <td>{{ totals.previous_balance }}</td>
+              </tr>
+              <tr>
+                <th>Credits Applied</th>
+                <td>{{ totals.credits_applied }}</td>
+              </tr>
+              {% if totals.retention_release %}
+              <tr>
+                <th>Retention Released</th>
+                <td>{{ totals.retention_release }}</td>
+              </tr>
+              {% endif %}
+              <tr class="grand-total">
+                <th>Amount Due</th>
+                <td>{{ totals.amount_due }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </article>
+      </section>
+
+      <section>
+        <h3>Payment Instructions</h3>
+        <p>Currency: {{ payment.currency }} | Terms: {{ payment.terms }}</p>
+        <p>Bank: {{ payment.bank.name }} | SWIFT: {{ payment.bank.swift }}</p>
+        <p>IBAN: {{ payment.bank.iban }}</p>
+        <p>Remittance Email: {{ payment.remittance_email }}</p>
+      </section>
+
+      <section>
+        <h3>Compliance and Contacts</h3>
+        <ul>
+          {% for note in compliance_notes %}
+          <li>{{ note }}</li>
+          {% endfor %}
+        </ul>
+        <p>
+          Primary contact: {{ contacts.primary.name }} ({{ contacts.primary.email }})<br />
+          Escalation contact: {{ contacts.escalation.name }} ({{ contacts.escalation.email }})
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

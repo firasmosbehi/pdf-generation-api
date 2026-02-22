@@ -1,0 +1,235 @@
+{
+  "seller": {
+    "legal_name": "Northstar Systems Integration LLC",
+    "tax_id": "98-7654321",
+    "duns": "117654329",
+    "address": {
+      "line1": "2400 Harbor Point Drive, Suite 500",
+      "city": "Seattle",
+      "state": "WA",
+      "postal_code": "98121",
+      "country": "United States"
+    }
+  },
+  "buyer": {
+    "company": "Helix BioManufacturing Group",
+    "contact_name": "Marta Ellison",
+    "contact_title": "Director, Technology Procurement",
+    "email": "marta.ellison@helix-bio.example",
+    "billing_address": {
+      "line1": "18 Observatory Park",
+      "city": "Cambridge",
+      "state": "MA",
+      "postal_code": "02141",
+      "country": "United States"
+    }
+  },
+  "invoice": {
+    "number": "NS-2025-12-0519",
+    "issue_date": "2025-12-31",
+    "due_date": "2026-01-30",
+    "po_number": "PO-HBG-78109",
+    "contract_id": "MSA-2024-NE-118"
+  },
+  "engagement": {
+    "region": "US East + US West + EU Central",
+    "program_name": "Clinical Platform Modernization",
+    "service_window": {
+      "start": "2025-12-01",
+      "end": "2025-12-31"
+    },
+    "support_tier": "Enterprise 24x7",
+    "sla_summary": "P1 response 15m, P2 response 1h, monthly uptime target 99.95%"
+  },
+  "line_items": [
+    {
+      "code": "CONS-ARCH-04",
+      "description": "Principal cloud architecture consulting",
+      "unit": "hours",
+      "quantity": 136,
+      "unit_price": "$245.00",
+      "discount_pct": 0,
+      "total": "$33,320.00",
+      "notes": "Reference architecture updates for regulated workload segmentation."
+    },
+    {
+      "code": "MIG-WORKLOAD-13",
+      "description": "Production workload migration execution batch 13",
+      "unit": "workloads",
+      "quantity": 24,
+      "unit_price": "$1,180.00",
+      "discount_pct": 8,
+      "total": "$26,054.40",
+      "notes": "Includes stabilization and cutover war-room support."
+    },
+    {
+      "code": "SEC-AUD-REDTEAM",
+      "description": "Adversarial security assessment and remediation workshop",
+      "unit": "fixed",
+      "quantity": 1,
+      "unit_price": "$32,000.00",
+      "discount_pct": 5,
+      "total": "$30,400.00",
+      "notes": "Expanded target set to include backup and recovery control plane."
+    },
+    {
+      "code": "SUP-OPS-24X7",
+      "description": "Managed operations support - enterprise tier",
+      "unit": "month",
+      "quantity": 1,
+      "unit_price": "$14,600.00",
+      "discount_pct": 0,
+      "total": "$14,600.00",
+      "notes": "Dedicated incident commander and executive incident reporting."
+    },
+    {
+      "code": "DATA-PIPE-OPT",
+      "description": "Data pipeline throughput optimization sprint",
+      "unit": "sprint",
+      "quantity": 2,
+      "unit_price": "$11,400.00",
+      "discount_pct": 4,
+      "total": "$21,888.00",
+      "notes": "Partitioning, query-plan tuning, and storage tiering."
+    },
+    {
+      "code": "OBS-STACK-HARDEN",
+      "description": "Observability stack hardening and retention policy alignment",
+      "unit": "fixed",
+      "quantity": 1,
+      "unit_price": "$9,750.00",
+      "discount_pct": 0,
+      "total": "$9,750.00",
+      "notes": "Improved trace sampling controls and immutable log archival."
+    },
+    {
+      "code": "DB-REPL-FAILOVER",
+      "description": "Database replication tuning and failover rehearsal",
+      "unit": "engagement",
+      "quantity": 1,
+      "unit_price": "$15,900.00",
+      "discount_pct": 0,
+      "total": "$15,900.00",
+      "notes": "Cross-region replication lag reduced below 250ms p95."
+    },
+    {
+      "code": "IAM-POLICY-REV",
+      "description": "Enterprise IAM role and policy review",
+      "unit": "hours",
+      "quantity": 58,
+      "unit_price": "$198.00",
+      "discount_pct": 3,
+      "total": "$11,142.12",
+      "notes": "Policy minimization and stale principal cleanup."
+    },
+    {
+      "code": "APP-PERF-LOAD",
+      "description": "Application performance and load testing cycle",
+      "unit": "cycle",
+      "quantity": 3,
+      "unit_price": "$6,450.00",
+      "discount_pct": 0,
+      "total": "$19,350.00",
+      "notes": "Includes baseline, stress, and soak test outputs."
+    },
+    {
+      "code": "CHANGE-MGMT",
+      "description": "Stakeholder enablement and change management workshops",
+      "unit": "workshop",
+      "quantity": 5,
+      "unit_price": "$2,200.00",
+      "discount_pct": 0,
+      "total": "$11,000.00",
+      "notes": "Operating model adoption for reliability and security teams."
+    }
+  ],
+  "milestones": [
+    {
+      "name": "Identity provider federation hardening",
+      "status": "Completed",
+      "target_date": "2025-12-05",
+      "actual_date": "2025-12-04"
+    },
+    {
+      "name": "Data retention policy automation",
+      "status": "Completed",
+      "target_date": "2025-12-10",
+      "actual_date": "2025-12-10"
+    },
+    {
+      "name": "Regional failover rehearsal",
+      "status": "Completed",
+      "target_date": "2025-12-14",
+      "actual_date": "2025-12-16"
+    },
+    {
+      "name": "PII tokenization deployment",
+      "status": "Completed with exceptions",
+      "target_date": "2025-12-18",
+      "actual_date": "2025-12-19"
+    },
+    {
+      "name": "SOC 2 evidence package readiness",
+      "status": "In review",
+      "target_date": "2025-12-22",
+      "actual_date": null
+    },
+    {
+      "name": "Executive continuity tabletop",
+      "status": "Completed",
+      "target_date": "2025-12-27",
+      "actual_date": "2025-12-27"
+    }
+  ],
+  "totals": {
+    "subtotal": "$193,404.52",
+    "tax_lines": [
+      {
+        "name": "WA State Sales Tax",
+        "rate": "6.50%",
+        "amount": "$12,571.29"
+      },
+      {
+        "name": "City Digital Services Tax",
+        "rate": "1.75%",
+        "amount": "$3,384.58"
+      },
+      {
+        "name": "Cross-Border Service Levy",
+        "rate": "0.80%",
+        "amount": "$1,547.24"
+      }
+    ],
+    "previous_balance": "$18,220.00",
+    "credits_applied": "-$6,500.00",
+    "retention_release": "$12,000.00",
+    "amount_due": "$234,627.63"
+  },
+  "payment": {
+    "currency": "USD",
+    "terms": "Net 30",
+    "remittance_email": "remittance@northstar-systems.example",
+    "bank": {
+      "name": "Cascade Commercial Bank",
+      "swift": "CASCUS66",
+      "iban": "US55CASC1100000098877665"
+    }
+  },
+  "compliance_notes": [
+    "Services delivered under MSA-2024-NE-118 and SOW-07 amendment executed 2025-08-12.",
+    "Change requests CR-2025-114, CR-2025-121, and CR-2025-126 approved by buyer PMO.",
+    "Work completed against controlled change windows with documented CAB approvals.",
+    "All privileged access sessions captured and retained according to customer policy section 4.3.",
+    "No unresolved critical incidents remained open at billing cutoff date."
+  ],
+  "contacts": {
+    "primary": {
+      "name": "Jamal Rivera",
+      "email": "jamal.rivera@northstar-systems.example"
+    },
+    "escalation": {
+      "name": "Priya Shenoy",
+      "email": "priya.shenoy@northstar-systems.example"
+    }
+  }
+}

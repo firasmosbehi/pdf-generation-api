@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: pdf-generation-api
+    runtime: docker
+    plan: starter
+    region: oregon
+    branch: main
+    autoDeploy: true
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    disk:
+      name: pdf-api-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PDF_API_DB_PATH
+        value: /var/data/pdf_api.sqlite3
+      - key: PDF_API_ADMIN_TOKEN
+        sync: false
+      - key: PDF_API_KEY_SALT
+        sync: false

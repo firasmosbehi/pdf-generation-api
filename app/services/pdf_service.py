@@ -4,7 +4,7 @@ import re
 from pathlib import Path
 from typing import Any
 
-from jinja2 import Environment, FileSystemLoader, TemplateNotFound, select_autoescape
+from jinja2 import Environment, FileSystemLoader, TemplateError, TemplateNotFound, select_autoescape
 from playwright.async_api import Error as PlaywrightError
 from playwright.async_api import async_playwright
 
@@ -41,6 +41,15 @@ class PDFService:
         except TemplateNotFound as exc:
             raise TemplateRenderError(f"Template '{template_name}' was not found.") from exc
         return template.render(**(data or {}), css=css)
+
+    def render_template_content(
+        self, *, template_content: str, css: str | None, data: dict[str, Any] | None
+    ) -> str:
+        try:
+            template = self.env.from_string(template_content)
+            return template.render(**(data or {}), css=css)
+        except TemplateError as exc:
+            raise TemplateRenderError("Uploaded template could not be rendered.") from exc
 
     async def generate_pdf(self, html: str) -> bytes:
         try:

@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Northstar Systems - Q4 2025 Operations Review</title>
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <div class="eyebrow">Executive Board Pack</div>
+        <h1>Q4 2025 Operations Review</h1>
+        <p class="subhead">
+          Northstar Systems - cloud platform, security modernization, and customer delivery metrics.
+        </p>
+        <div class="meta-grid">
+          <div><span>Prepared By</span><strong>Program Management Office</strong></div>
+          <div><span>Reporting Window</span><strong>Oct 1 - Dec 31, 2025</strong></div>
+          <div><span>Distribution</span><strong>Board, Audit Committee, CTO Office</strong></div>
+          <div><span>Confidentiality</span><strong>Internal - Restricted</strong></div>
+        </div>
+      </header>
+
+      <section>
+        <h2>Executive Summary</h2>
+        <p>
+          Q4 closed with strong delivery performance across critical streams: platform reliability
+          improved to 99.982%, deployment frequency increased 37% quarter-over-quarter, and median
+          cycle time dropped from 9.4 days to 6.8 days. Primary risk remains vendor lead time for
+          secure edge hardware in the EU region.
+        </p>
+      </section>
+
+      <section>
+        <h2>Key Performance Indicators</h2>
+        <div class="kpi-grid">
+          <article class="kpi good">
+            <h3>Platform Availability</h3>
+            <p class="kpi-value">99.982%</p>
+            <p>Target: 99.95% (Exceeded)</p>
+          </article>
+          <article class="kpi good">
+            <h3>Mean Time To Recovery</h3>
+            <p class="kpi-value">21 min</p>
+            <p>Target: 30 min (Exceeded)</p>
+          </article>
+          <article class="kpi warn">
+            <h3>Hardware Fulfillment SLA</h3>
+            <p class="kpi-value">84%</p>
+            <p>Target: 92% (At Risk)</p>
+          </article>
+          <article class="kpi good">
+            <h3>Critical Vulnerabilities Open &gt; 14d</h3>
+            <p class="kpi-value">3</p>
+            <p>Target: &lt;= 5 (On Track)</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Program Delivery Timeline</h2>
+        <ol class="timeline">
+          <li>
+            <div class="dot complete"></div>
+            <div>
+              <h3>Identity Federation v2</h3>
+              <p>Completed November 6, 2025. Rolled out SAML + OIDC policy harmonization.</p>
+            </div>
+          </li>
+          <li>
+            <div class="dot complete"></div>
+            <div>
+              <h3>Data Residency Controls (EU)</h3>
+              <p>Completed December 2, 2025. Added retention policy packs and legal hold controls.</p>
+            </div>
+          </li>
+          <li>
+            <div class="dot in-progress"></div>
+            <div>
+              <h3>Secure Edge Gateway Refresh</h3>
+              <p>In progress. Hardware delivery slipped 18 days due to customs processing.</p>
+            </div>
+          </li>
+          <li>
+            <div class="dot planned"></div>
+            <div>
+              <h3>Real-Time Cost Guardrails</h3>
+              <p>Planned for January 2026. FinOps automation tied to environment-level budgets.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Budget Utilization by Workstream</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Workstream</th>
+              <th>Quarter Budget</th>
+              <th>Actual Spend</th>
+              <th>Variance</th>
+              <th>Utilization</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Platform Reliability</td>
+              <td>$1,200,000</td>
+              <td>$1,118,450</td>
+              <td class="positive">+$81,550</td>
+              <td>
+                <div class="bar"><span style="width: 93%"></span></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Security Modernization</td>
+              <td>$980,000</td>
+              <td>$1,005,210</td>
+              <td class="negative">-$25,210</td>
+              <td>
+                <div class="bar"><span style="width: 103%"></span></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Edge Hardware Program</td>
+              <td>$760,000</td>
+              <td>$684,090</td>
+              <td class="positive">+$75,910</td>
+              <td>
+                <div class="bar"><span style="width: 90%"></span></div>
+              </td>
+            </tr>
+            <tr>
+              <td>FinOps Tooling</td>
+              <td>$420,000</td>
+              <td>$391,884</td>
+              <td class="positive">+$28,116</td>
+              <td>
+                <div class="bar"><span style="width: 93%"></span></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Top Risks and Mitigations</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Risk</th>
+              <th>Probability</th>
+              <th>Impact</th>
+              <th>Owner</th>
+              <th>Mitigation Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>R-021</td>
+              <td>EU edge hardware customs delays</td>
+              <td>High</td>
+              <td>High</td>
+              <td>Supply Chain PM</td>
+              <td>Split shipments across two logistics partners; maintain 3-week safety stock.</td>
+            </tr>
+            <tr>
+              <td>R-034</td>
+              <td>Legacy agent incompatibility on kernel 6.x</td>
+              <td>Medium</td>
+              <td>Medium</td>
+              <td>Runtime Team Lead</td>
+              <td>Dual-run compatibility layer for 45 days and auto-rollback feature flag.</td>
+            </tr>
+            <tr>
+              <td>R-042</td>
+              <td>Unexpected cloud egress charges in APAC failover tests</td>
+              <td>Medium</td>
+              <td>High</td>
+              <td>FinOps Manager</td>
+              <td>Enforce egress budget alerts at 70/85/95% with automated endpoint throttling.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <footer>
+        <p>
+          Prepared for January 2026 governance review. Contact pmo-office@northstar-systems.example for
+          source data extracts and working spreadsheets.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>

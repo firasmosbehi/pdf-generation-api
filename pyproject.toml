@@ -5,7 +5,7 @@ description = "FastAPI service to generate PDFs from HTML/CSS or Jinja2 template
 authors = [
     {name = "Firas Mosbehi",email = "firas.mosbehi@insat.ucar.tn"}
 ]
-requires-python = "^3.10"
+requires-python = ">=3.10,<4.0"
 dependencies = [
     "fastapi>=0.115.0,<1.0.0",
     "uvicorn[standard]>=0.30.0,<1.0.0",
